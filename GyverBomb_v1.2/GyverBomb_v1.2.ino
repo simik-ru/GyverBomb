@@ -183,6 +183,10 @@ void time_ent() {
     String time_str;
     for (int i = 0; i <= 3; i++) {
       char key = keypad.waitForKey();
+      if (key < '0' || key > '9') {
+        i--;
+        continue;
+      }
       disp.display(i, key - '0');
       time_str = time_str + key;
     }
